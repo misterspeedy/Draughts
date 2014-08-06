@@ -1,3 +1,5 @@
 ﻿module Square
 
-type Square = | Unreachable
+type Square = 
+   | Unreachable
+   | Reachable
