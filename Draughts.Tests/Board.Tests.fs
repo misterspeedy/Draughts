@@ -13,17 +13,22 @@ let ``The board is 8x8``() =
    Assert.AreEqual(expected, actual)
 
 [<Test>]
-let ``I can access a square in the board by column and row``() =
+let ``I can access any square in the board by column and row``() =
    let sut = EmptyBoard()
-   let expected = None
-   let actual = sut.[3,4]
-   Assert.AreEqual(expected, actual)
+   for col in 0..sut |> Array2D.length1 do
+      for row in 0..sut |> Array2D.length2 do
+         let expected = None
+         let actual = sut.[3,4]
+         Assert.AreEqual(expected, actual)
 
-[<Test>]
-let ``Accessing a square outside the board returns an error``() =
-   let expected = true
-   let actual = false
-   Assert.AreEqual(expected, actual)
+[<TestCase(-1, -1)>]
+[<TestCase(-1, 0)>]
+[<TestCase(8, 0)>]
+[<TestCase(0, 8)>]
+let ``Accessing a square outside the board returns an error``(row, col) =
+   let sut = EmptyBoard()
+   let cant = (fun () -> sut.[row, col] |> ignore)
+   Assert.That(cant, Throws.TypeOf<System.IndexOutOfRangeException>())
 
 [<Test>]
 let ``I cannot update a square``() =
