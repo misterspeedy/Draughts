@@ -78,6 +78,15 @@ let ``I can place a piece in an unoccupied square producing a new board``() =
    Assert.AreNotEqual(sut, sut')
 
 [<Test>]
+let ``When I have placed a piece I can find that piece in the new board``() =
+   let sut = EmptyBoard()
+   let piece = Occupied(Piece)
+   let sut' = sut.Set(1, 0, piece)
+   let expected = Occupied(Piece)
+   let actual = sut'.[1, 0]
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
 let ``Placing a piece in an occupied square causes an error``() =
    let expected = true
    let actual = false
