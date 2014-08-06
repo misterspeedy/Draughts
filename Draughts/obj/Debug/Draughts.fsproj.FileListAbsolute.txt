@@ -1,0 +1,7 @@
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts\bin\Debug\Draughts.XML
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts\bin\Debug\Draughts.dll
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts\bin\Debug\Draughts.pdb
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts\bin\Debug\FSharp.Core.dll
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts\bin\Debug\FSharp.Core.xml
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts\obj\Debug\Draughts.dll
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts\obj\Debug\Draughts.pdb

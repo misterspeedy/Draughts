@@ -1,0 +1,9 @@
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\Draughts.Tests.XML
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\Draughts.Tests.dll
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\Draughts.Tests.pdb
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\FSharp.Core.dll
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\nunit.framework.dll
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\FSharp.Core.xml
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\nunit.framework.xml
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\obj\Debug\Draughts.Tests.dll
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\obj\Debug\Draughts.Tests.pdb
