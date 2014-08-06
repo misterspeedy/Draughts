@@ -14,8 +14,9 @@ let ``The board is 8x8``() =
 
 [<Test>]
 let ``I can access a square in the board by column and row``() =
-   let expected = true
-   let actual = false
+   let sut = EmptyBoard()
+   let expected = None
+   let actual = sut.[3,4]
    Assert.AreEqual(expected, actual)
 
 [<Test>]

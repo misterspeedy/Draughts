@@ -2,5 +2,11 @@
 <doc>
 <assembly><name>Draughts</name></assembly>
 <members>
+<member name="">
+
+</member>
+<member name="T:Board">
+
+</member>
 </members>
 </doc>
