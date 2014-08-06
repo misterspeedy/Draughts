@@ -51,6 +51,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Compile Include="Board.Tests.fs" />
+    <Compile Include="ImmutableArray.Tests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

@@ -42,6 +42,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImmutableArray.fs" />
     <Compile Include="Board.fs" />
   </ItemGroup>
   <PropertyGroup>

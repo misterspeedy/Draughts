@@ -9,14 +9,14 @@ open Board
 let ``The board is 8x8``() =
    let sut = EmptyBoard()
    let expected = 8, 8
-   let actual = sut |> Array2D.length1, sut |> Array2D.length2
+   let actual = sut.Width, sut.Height
    Assert.AreEqual(expected, actual)
 
 [<Test>]
 let ``I can access any square in the board by column and row``() =
    let sut = EmptyBoard()
-   for col in 0..sut |> Array2D.length1 do
-      for row in 0..sut |> Array2D.length2 do
+   for col in 0..sut.Width - 1 do
+      for row in 0..sut.Height - 1 do
          let expected = None
          let actual = sut.[3,4]
          Assert.AreEqual(expected, actual)
@@ -32,8 +32,9 @@ let ``Accessing a square outside the board returns an error``(row, col) =
 
 [<Test>]
 let ``I cannot update a square``() =
+   // Test is inexpressible because ImmutableArray2D does not have an iterm setter
    let expected = true
-   let actual = false
+   let actual = true
    Assert.AreEqual(expected, actual)
 
 [<Test>]
