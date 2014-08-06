@@ -41,3 +41,5 @@ Icon
 Draughts.Tests/bin/Debug/Draughts.Tests.dll
 *.pdb
 *.dll
+*.dll
+*.pdb
