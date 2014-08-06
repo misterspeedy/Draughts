@@ -5,6 +5,7 @@ open System
 open NUnit.Framework
 open Board
 open Square
+open Piece
 
 [<Test>]
 let ``The board is 8x8``() =
@@ -57,12 +58,12 @@ let ``Odd numbered squares are unreachable``() =
             Assert.AreEqual(expected, actual)
 
 [<Test>]
-let ``Even numbered squares are reachable``() =
+let ``Reachable squares are initially unoccupied``() =
    let isOdd r c = 
       let index = r * 8 + c
       index % 2 = 0
    let sut = EmptyBoard()
-   let expected = Square.Reachable
+   let expected = Square.Unoccupied
    for col in 0..sut.Width - 1 do
       for row in 0..sut.Height - 1 do
          if not (isOdd row col) then 
@@ -70,13 +71,14 @@ let ``Even numbered squares are reachable``() =
             Assert.AreEqual(expected, actual)
 
 [<Test>]
-let ``Reachable squares might be unoccupied``() =
-   let expected = true
-   let actual = false
-   Assert.AreEqual(expected, actual)
+let ``I can place a piece in an unoccupied square producing a new board``() =
+   let sut = EmptyBoard()
+   let piece = Occupied(Piece)
+   let sut' = sut.Set(1, 0, piece)
+   Assert.AreNotEqual(sut, sut')
 
 [<Test>]
-let ``Reachable squares might be occupied by a piece``() =
+let ``Placing a piece in an occupied square causes an error``() =
    let expected = true
    let actual = false
    Assert.AreEqual(expected, actual)

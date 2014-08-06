@@ -10,6 +10,6 @@ let EmptyBoard() =
       if isOdd then
          Square.Unreachable
       else
-         Square.Reachable)
+         Square.Unoccupied)
    ImmutableArray2D(data)
    

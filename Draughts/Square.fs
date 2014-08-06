@@ -1,5 +1,8 @@
 ﻿module Square
 
+open Piece
+
 type Square = 
    | Unreachable
-   | Reachable
+   | Unoccupied
+   | Occupied of Piece
