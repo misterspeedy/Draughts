@@ -7,3 +7,6 @@ C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\FSharp.Cor
 C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\nunit.framework.xml
 C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\obj\Debug\Draughts.Tests.dll
 C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\obj\Debug\Draughts.Tests.pdb
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\Draughts.dll
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\Draughts.pdb
+C:\Users\kitea_000\Documents\GitHub\Draughts\Draughts.Tests\bin\Debug\Draughts.xml

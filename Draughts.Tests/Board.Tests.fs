@@ -11,6 +11,18 @@ let ``The board is 8x8``() =
    Assert.AreEqual(expected, actual)
 
 [<Test>]
+let ``I can access a square in the board by column and row``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``Accessing a square outside the board returns an error``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
 let ``Odd numbered squares are unreachable``() =
    let expected = true
    let actual = false
