@@ -58,9 +58,9 @@ let ``A game rejects an otherwise valid move when it is not the players turn``()
 [<Test>]
 let ``When a game accepts a move the current player changes``() =
    let sut = Game()
-   sut.Move(Red, 0, 5, 1, 4)
+   let sut' = sut.Move(Red, 0, 5, 1, 4)
    let expected = White
-   let actual = sut.CurrentPlayer
+   let actual = sut'.CurrentPlayer
    Assert.AreEqual(expected, actual)
 
 [<Test>]
