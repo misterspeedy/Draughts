@@ -25,6 +25,6 @@ type Board(data) =
          data'.[col, row] <- value
          Board(data')
       | Occupied _ -> raise (ArgumentException("Square is already occupied"))
-      | _ -> raise(ArgumentException("Case not yet supported"))
+      | _ -> raise(ArgumentException("That square is not reachable"))
 
    // TODO consider copying tests from ImmutableArray

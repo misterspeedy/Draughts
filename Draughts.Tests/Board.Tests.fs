@@ -96,6 +96,9 @@ let ``Placing a piece in an occupied square causes an error``() =
 
 [<Test>]
 let ``Placing a piece in an unreachable square causes an error``() =
-   let expected = true
-   let actual = false
-   Assert.AreEqual(expected, actual)
+   let sut = Board()
+   let square = Occupied(Piece)
+   let cant = (fun () -> 
+      sut.Set(0, 0, square) |> ignore
+      ())
+   Assert.That(cant, Throws.TypeOf<System.ArgumentException>())
