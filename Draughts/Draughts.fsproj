@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImmutableArray.fs" />
+    <Compile Include="Player.fs" />
     <Compile Include="Piece.fs" />
     <Compile Include="Square.fs" />
     <Compile Include="Board.fs" />

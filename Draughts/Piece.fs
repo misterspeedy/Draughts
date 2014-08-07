@@ -1,4 +1,5 @@
 ﻿module Piece
 
-type Color = Red | White
-type Piece = | Piece of Color
+open Player
+
+type Piece = | Piece of Player

@@ -55,6 +55,7 @@
     <Compile Include="Square.Tests.fs" />
     <Compile Include="Piece.Tests.fs" />
     <Compile Include="Game.Tests.fs" />
+    <Compile Include="Player.Tests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

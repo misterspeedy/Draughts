@@ -3,10 +3,11 @@ module GameTests
 
 open System
 open NUnit.Framework
+open Player
 open Piece
-open Game
-open Board
 open Square
+open Board
+open Game
 
 [<Test>]
 let ``A game has a board``() =

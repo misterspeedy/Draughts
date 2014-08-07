@@ -3,9 +3,10 @@ module BoardTests
 
 open System
 open NUnit.Framework
-open Board
-open Square
+open Player
 open Piece
+open Square
+open Board
 
 let IsOdd c r = 
    let index = r * 8 + c

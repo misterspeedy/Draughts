@@ -1,9 +1,10 @@
 ﻿module Game
 
 open System
-open Board
-open Square
+open Player
 open Piece
+open Square
+open Board
 
 type Game() =
    let mutable _board = Board()
