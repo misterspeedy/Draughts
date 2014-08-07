@@ -36,3 +36,21 @@ let ``A new game sets up the board with three rows of white pieces at the bottom
          | Unreachable -> ()
          | Occupied actual -> Assert.AreEqual(expected, actual)
          | Unoccupied -> raise (Exception("No square in first three rows should be unoccupied"))
+
+[<Test>]
+let ``A game accepts a valid left or right move from the first player``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``A game rejects an invalid left or right move from the first player``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``A game rejects an otherwise valid move when it is not the player's turn``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
