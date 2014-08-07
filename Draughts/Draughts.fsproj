@@ -46,6 +46,7 @@
     <Compile Include="Piece.fs" />
     <Compile Include="Square.fs" />
     <Compile Include="Board.fs" />
+    <Compile Include="Game.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

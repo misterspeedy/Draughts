@@ -54,6 +54,7 @@
     <Compile Include="ImmutableArray.Tests.fs" />
     <Compile Include="Square.Tests.fs" />
     <Compile Include="Piece.Tests.fs" />
+    <Compile Include="Game.Tests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

@@ -43,7 +43,7 @@ let ``Accessing a square outside the board returns an error``(row, col) =
 
 [<Test>]
 let ``I cannot update a square``() =
-   // Test is inexpressible because ImmutableArray2D does not have an item setter
+   // Test is inexpressible because Board does not have an item setter
    let expected = true
    let actual = true
    Assert.AreEqual(expected, actual)
@@ -71,14 +71,14 @@ let ``Reachable squares are initially unoccupied``() =
 [<Test>]
 let ``I can place a piece in an unoccupied square producing a new board``() =
    let sut = Board()
-   let square = Occupied(Piece)
+   let square = Occupied(Piece Red)
    let sut' = sut.Set(1, 0, square)
    Assert.AreNotEqual(sut, sut')
 
 [<Test>]
 let ``When I have placed a piece I can find that piece in the new board``() =
    let sut = Board()
-   let square = Occupied(Piece)
+   let square = Occupied(Piece Red)
    let sut' = sut.Set(1, 0, square)
    let expected = square
    let actual = sut'.[1, 0]
@@ -87,7 +87,7 @@ let ``When I have placed a piece I can find that piece in the new board``() =
 [<Test>]
 let ``Placing a piece in an occupied square causes an error``() =
    let sut = Board()
-   let square = Occupied(Piece)
+   let square = Occupied(Piece Red)
    let sut' = sut.Set(1, 0, square)
    let cant = (fun () -> 
       let sut'' = sut'.Set(1, 0, square)
@@ -97,7 +97,7 @@ let ``Placing a piece in an occupied square causes an error``() =
 [<Test>]
 let ``Placing a piece in an unreachable square causes an error``() =
    let sut = Board()
-   let square = Occupied(Piece)
+   let square = Occupied(Piece Red)
    let cant = (fun () -> 
       sut.Set(0, 0, square) |> ignore
       ())
