@@ -8,6 +8,7 @@ open Board
 
 open System
 
+// TODO eliminate mutation
 type Game() =
    let mutable currentPlayer = FirstPlayer
    let mutable _board = Board()
@@ -32,3 +33,4 @@ type Game() =
          raise (ArgumentException("It is not that player's turn"))
       let piece = _board.[fromCol, fromRow]
       _board <- _board.Set(toCol, toRow, piece)
+   member this.CurrentPlayer = currentPlayer

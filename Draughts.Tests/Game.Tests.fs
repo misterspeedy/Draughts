@@ -39,9 +39,9 @@ let ``A new game sets up the board with three rows of white pieces at the bottom
 
 [<Test>]
 let ``A game accepts a valid move from the current player``() =
-   let expected = true
-   let actual = false
-   Assert.AreEqual(expected, actual)
+   let sut = Game()
+   let sut' = sut.Move(Red, 0, 5, 1, 4)
+   Assert.AreNotEqual(sut, sut')
 
 [<Test>]
 let ``A game rejects an off the board move from the current player``() =
@@ -57,8 +57,10 @@ let ``A game rejects an otherwise valid move when it is not the players turn``()
 
 [<Test>]
 let ``When a game accepts a move the current player changes``() =
-   let expected = true
-   let actual = false
+   let sut = Game()
+   sut.Move(Red, 0, 5, 1, 4)
+   let expected = White
+   let actual = sut.CurrentPlayer
    Assert.AreEqual(expected, actual)
 
 [<Test>]
