@@ -7,6 +7,7 @@ open Square
 open Board
 
 type Game() =
+   let mutable currentPlayer = FirstPlayer
    let mutable _board = Board()
    do
       for row in 0..2 do
@@ -23,3 +24,4 @@ type Game() =
             | Unoccupied -> _board <- _board.Set(col, row, Occupied (Piece White))
 
    member this.Board = _board
+   member this.Move(player, fromCol, fromRow, toCol, toRow, direction) = ()

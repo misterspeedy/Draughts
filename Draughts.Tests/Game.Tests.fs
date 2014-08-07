@@ -38,19 +38,55 @@ let ``A new game sets up the board with three rows of white pieces at the bottom
          | Unoccupied -> raise (Exception("No square in first three rows should be unoccupied"))
 
 [<Test>]
-let ``A game accepts a valid left or right move from the first player``() =
+let ``A game accepts a valid move from the first player``() =
    let expected = true
    let actual = false
    Assert.AreEqual(expected, actual)
 
 [<Test>]
-let ``A game rejects an invalid left or right move from the first player``() =
+let ``A game rejects an invalid move from the first player``() =
    let expected = true
    let actual = false
    Assert.AreEqual(expected, actual)
 
 [<Test>]
 let ``A game rejects an otherwise valid move when it is not the player's turn``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``When a game accepts a move the current player changes``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``When a game rejects a move the current player does not change``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``When a game accepts a move the from-square becomes unoccupied``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``When a game rejects a move the from-square does not change``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``When a game accepts a move the to-square becomes occupied with the right piece``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``When a game rejects a move the to-square does not change``() =
    let expected = true
    let actual = false
    Assert.AreEqual(expected, actual)
