@@ -38,22 +38,22 @@ let ``A new game sets up the board with three rows of white pieces at the bottom
          | Unoccupied -> raise (Exception("No square in first three rows should be unoccupied"))
 
 [<Test>]
-let ``A game accepts a valid move from the first player``() =
+let ``A game accepts a valid move from the current player``() =
    let expected = true
    let actual = false
    Assert.AreEqual(expected, actual)
 
 [<Test>]
-let ``A game rejects an invalid move from the first player``() =
-   let expected = true
-   let actual = false
-   Assert.AreEqual(expected, actual)
+let ``A game rejects an off the board move from the current player``() =
+   let sut = Game()
+   let cant = (fun () -> sut.Move(Red, 0, 5, -1, 4))
+   Assert.That(cant, Throws.TypeOf<System.IndexOutOfRangeException>())
 
 [<Test>]
-let ``A game rejects an otherwise valid move when it is not the player's turn``() =
-   let expected = true
-   let actual = false
-   Assert.AreEqual(expected, actual)
+let ``A game rejects an otherwise valid move when it is not the players turn``() =
+   let sut = Game()
+   let cant = (fun () -> sut.Move(White, 0, 5, 1, 4))
+   Assert.That(cant, Throws.TypeOf<System.ArgumentException>())
 
 [<Test>]
 let ``When a game accepts a move the current player changes``() =
@@ -87,6 +87,18 @@ let ``When a game accepts a move the to-square becomes occupied with the right p
 
 [<Test>]
 let ``When a game rejects a move the to-square does not change``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``When a game rejects a move when the from-square does not contain a piece for that player``() =
+   let expected = true
+   let actual = false
+   Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``When a game rejects a move when the to-square is already occupied``() =
    let expected = true
    let actual = false
    Assert.AreEqual(expected, actual)

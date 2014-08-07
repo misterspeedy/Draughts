@@ -6,10 +6,13 @@ open Piece
 open Square
 open Board
 
+open System
+
 type Game() =
    let mutable currentPlayer = FirstPlayer
    let mutable _board = Board()
    do
+      // TODO eliminate repetition
       for row in 0..2 do
          for col in 0.._board.Width-1 do
             match _board.[col, row] with
@@ -24,4 +27,8 @@ type Game() =
             | Unoccupied -> _board <- _board.Set(col, row, Occupied (Piece White))
 
    member this.Board = _board
-   member this.Move(player, fromCol, fromRow, toCol, toRow, direction) = ()
+   member this.Move(player, fromCol, fromRow, toCol, toRow) =
+      if player <> currentPlayer then
+         raise (ArgumentException("It is not that player's turn"))
+      let piece = _board.[fromCol, fromRow]
+      _board <- _board.Set(toCol, toRow, piece)
