@@ -40,39 +40,42 @@ let ``A new game sets up the board with three rows of white pieces at the bottom
 [<Test>]
 let ``A game accepts a valid move from the current player``() =
    let sut = Game()
-   let sut' = sut.Move(Red, 0, 5, 1, 4)
+   let sut' = sut.Move(Red, 1, 2, 0, 3)
    Assert.AreNotEqual(sut, sut')
 
 [<Test>]
 let ``A game rejects an off the board move from the current player``() =
    let sut = Game()
-   let cant = (fun () -> sut.Move(Red, 0, 5, -1, 4))
+   let cant = (fun () -> sut.Move(Red, 7, 2, 8, 3))
    Assert.That(cant, Throws.TypeOf<System.IndexOutOfRangeException>())
 
 [<Test>]
 let ``A game rejects an otherwise valid move when it is not the players turn``() =
    let sut = Game()
-   let cant = (fun () -> sut.Move(White, 0, 5, 1, 4))
+   let cant = (fun () -> sut.Move(White, 1, 2, 0, 3))
    Assert.That(cant, Throws.TypeOf<System.ArgumentException>())
 
 [<Test>]
 let ``When a game accepts a move the current player changes``() =
    let sut = Game()
-   let sut' = sut.Move(Red, 0, 5, 1, 4)
+   let sut' = sut.Move(Red, 1, 2, 0, 3)
    let expected = White
    let actual = sut'.CurrentPlayer
    Assert.AreEqual(expected, actual)
 
 [<Test>]
 let ``When a game rejects a move the current player does not change``() =
+   // Test is inexpressible: if an exception is raised a new Game() instance won't be assigned
    let expected = true
-   let actual = false
+   let actual = true
    Assert.AreEqual(expected, actual)
 
 [<Test>]
 let ``When a game accepts a move the from-square becomes unoccupied``() =
-   let expected = true
-   let actual = false
+   let sut = Game()
+   let sut' = sut.Move(Red, 1, 2, 0, 3)
+   let expected = Unoccupied
+   let actual = sut'.Board.[0, 5]
    Assert.AreEqual(expected, actual)
 
 [<Test>]

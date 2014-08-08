@@ -7,13 +7,13 @@ open ImmutableArray
 type Board(data) = 
    new() =
       let data = Array2D.init 8 8 (fun col row -> 
-         let isOdd c r = 
-            let index = r * 8 + c
-            index % 2 = 1
-         if isOdd col row then
-            Square.Unoccupied
-         else
-            Square.Unreachable)
+         let isEven n = n % 2 = 0
+         match isEven row, isEven col with
+         | false, false -> Unreachable
+         | false, true -> Unoccupied 
+         | true, false -> Unoccupied
+         | true, true -> Unreachable
+         )
       new Board(data)
    member this.Width = data |> Array2D.length1
    member this.Height = data |> Array2D.length2

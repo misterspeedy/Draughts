@@ -50,24 +50,34 @@ let ``I cannot update a square``() =
    Assert.AreEqual(expected, actual)
 
 [<Test>]
-let ``Even numbered squares are unreachable``() =
+let ``Even numbered rows start with an unreachable square``() =
    let sut = Board()
-   let expected = Square.Unreachable
-   for col in 0..sut.Width - 1 do
-      for row in 0..sut.Height - 1 do
-         if not (IsOdd col row) then 
-            let actual = sut.[col, row]
-            Assert.AreEqual(expected, actual)
+   let expected = Unreachable
+   for row in 0..2..sut.Height-1 do
+      let actual = sut.[0, row]
+      Assert.AreEqual(expected, actual)
 
 [<Test>]
-let ``Reachable squares are initially unoccupied``() =
+let ``Odd numbered rows start with an unoccupied square``() =
    let sut = Board()
-   let expected = Square.Unoccupied
-   for col in 0..sut.Width - 1 do
-      for row in 0..sut.Height - 1 do
-         if IsOdd col row then 
-            let actual = sut.[col, row]
-            Assert.AreEqual(expected, actual)
+   let expected = Unoccupied
+   for row in 1..2..sut.Height-1 do
+      let actual = sut.[0, row]
+      Assert.AreEqual(expected, actual)
+
+[<Test>]
+let ``Each row alternates between reachable and unoccupied squares``() =
+   let sut = Board()
+   let nextExpected = function
+      | Unreachable -> Unoccupied
+      | Unoccupied -> Unreachable
+      | _ -> raise (ArgumentException("Internal test error - unsupported case"))
+   for row in 0..sut.Height-1 do
+      let mutable expected = sut.[0, row]
+      for col in 0..sut.Width-1 do
+         let actual = sut.[col, row]
+         Assert.AreEqual(expected, actual)
+         expected <- expected |> nextExpected
 
 [<Test>]
 let ``I can place a piece in an unoccupied square producing a new board``() =
