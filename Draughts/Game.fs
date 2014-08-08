@@ -12,19 +12,16 @@ type Game(currentPlayer, board) =
    new() =
       let mutable _board = Board()
       do
-         // TODO eliminate repetition
+         // Position red pieces:
          for row in 0..2 do
             for col in 0.._board.Width-1 do
-               match _board.[col, row] with
-               | Unreachable -> ()
-               | Occupied _ -> raise (Exception("No square in first three rows should be occupied"))
-               | Unoccupied -> _board <- _board.Set(col, row, Occupied (Piece Red))
+               if _board.[col, row] = Unoccupied then 
+                  _board <- _board.Set(col, row, Occupied (Piece Red))
+         // Position white pieces:
          for row in _board.Height-3.._board.Height-1 do
             for col in 0.._board.Width-1 do
-               match _board.[col, row] with
-               | Unreachable -> ()
-               | Occupied _ -> raise (Exception("No square in first three rows should be occupied"))
-               | Unoccupied -> _board <- _board.Set(col, row, Occupied (Piece White))
+               if _board.[col, row] = Unoccupied then 
+                  _board <- _board.Set(col, row, Occupied (Piece White))
       Game(FirstPlayer, _board)
 
    member this.Board = board

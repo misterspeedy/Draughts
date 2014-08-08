@@ -47,13 +47,13 @@ let ``A game accepts a valid move from the current player``() =
 let ``A game rejects an off the board move from the current player``() =
    let sut = Game()
    let cant = (fun () -> sut.Move(Red, 7, 2, 8, 3))
-   Assert.That(cant, Throws.TypeOf<System.IndexOutOfRangeException>())
+   Assert.That(cant, Throws.TypeOf<IndexOutOfRangeException>())
 
 [<Test>]
 let ``A game rejects an otherwise valid move when it is not the players turn``() =
    let sut = Game()
    let cant = (fun () -> sut.Move(White, 1, 2, 0, 3))
-   Assert.That(cant, Throws.TypeOf<System.ArgumentException>())
+   Assert.That(cant, Throws.TypeOf<ArgumentException>())
 
 [<Test>]
 let ``When a game accepts a move the current player changes``() =
@@ -104,7 +104,7 @@ let ``When a game rejects a move the to-square does not change``() =
 let ``A game rejects a move when the from-square does not contain a piece for that player``() =
    let sut = Game()
    let cant = (fun () -> sut.Move(White, 1, 2, 0, 3))
-   Assert.That(cant, Throws.TypeOf<System.ArgumentException>())
+   Assert.That(cant, Throws.TypeOf<ArgumentException>())
 
 [<Test>]
 let ``A game rejects a move when the to-square is already occupied``() =
@@ -113,5 +113,6 @@ let ``A game rejects a move when the to-square is already occupied``() =
       sut
          .Move(Red, 1, 2, 2, 3)
          .Move(White, 0, 5, 1, 4)
+   // Move into the position White just moved into:
    let cant = (fun () -> sut.Move(Red, 2, 3, 1, 4) |> ignore)
-   Assert.That(cant, Throws.TypeOf<System.ArgumentException>())
+   Assert.That(cant, Throws.TypeOf<ArgumentException>())

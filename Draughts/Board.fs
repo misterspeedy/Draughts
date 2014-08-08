@@ -12,8 +12,7 @@ type Board(data) =
          | false, false -> Unreachable
          | false, true -> Unoccupied 
          | true, false -> Unoccupied
-         | true, true -> Unreachable
-         )
+         | true, true -> Unreachable)
       new Board(data)
    member this.Width = data |> Array2D.length1
    member this.Height = data |> Array2D.length2
