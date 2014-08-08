@@ -32,6 +32,9 @@ type Game(currentPlayer, board) =
       if player <> currentPlayer then
          raise (ArgumentException("It is not that player's turn"))
       let piece = board.[fromCol, fromRow]
-      let board' = board.Set(toCol, toRow, piece)
+      let board' = 
+         board
+            .Set(toCol, toRow, piece)
+            .Set(fromCol, fromRow, Unoccupied)
       Game(player |> NextPlayer, board')
    member this.CurrentPlayer = currentPlayer

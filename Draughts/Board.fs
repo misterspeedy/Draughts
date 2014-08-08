@@ -19,12 +19,15 @@ type Board(data) =
    member this.Height = data |> Array2D.length2
    member this.Item(col, row) = data.[col, row]
    member this.Set(col, row, value) =
-      match data.[col, row] with
-      | Unoccupied -> 
+      match value, data.[col, row] with
+      | Unoccupied, Occupied _ 
+      | Occupied _, Unoccupied ->
          let data' = Array2D.copy data
          data'.[col, row] <- value
          Board(data')
-      | Occupied _ -> raise (ArgumentException("Square is already occupied"))
-      | _ -> raise(ArgumentException("That square is not reachable"))
+      | Occupied _, Occupied _ -> raise (ArgumentException("Square is already occupied"))
+      | Unoccupied, Unoccupied -> raise (ArgumentException("Square is already unoccupied"))
+      | Unreachable, _
+      | _, Unreachable -> raise(ArgumentException("That square is not reachable"))
 
    // TODO consider copying tests from ImmutableArray

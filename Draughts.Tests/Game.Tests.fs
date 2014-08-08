@@ -75,35 +75,43 @@ let ``When a game accepts a move the from-square becomes unoccupied``() =
    let sut = Game()
    let sut' = sut.Move(Red, 1, 2, 0, 3)
    let expected = Unoccupied
-   let actual = sut'.Board.[0, 5]
+   let actual = sut'.Board.[1, 2]
    Assert.AreEqual(expected, actual)
 
 [<Test>]
 let ``When a game rejects a move the from-square does not change``() =
+   // Test is inexpressible: if an exception is raised a new Game() instance won't be assigned
    let expected = true
-   let actual = false
+   let actual = true
    Assert.AreEqual(expected, actual)
 
 [<Test>]
 let ``When a game accepts a move the to-square becomes occupied with the right piece``() =
-   let expected = true
-   let actual = false
+   let sut = Game()
+   let sut' = sut.Move(Red, 1, 2, 0, 3)
+   let expected = Occupied (Piece Red)
+   let actual = sut'.Board.[0, 3]
    Assert.AreEqual(expected, actual)
 
 [<Test>]
 let ``When a game rejects a move the to-square does not change``() =
+   // Test is inexpressible: if an exception is raised a new Game() instance won't be assigned
    let expected = true
-   let actual = false
+   let actual = true
    Assert.AreEqual(expected, actual)
 
 [<Test>]
-let ``When a game rejects a move when the from-square does not contain a piece for that player``() =
-   let expected = true
-   let actual = false
-   Assert.AreEqual(expected, actual)
+let ``A game rejects a move when the from-square does not contain a piece for that player``() =
+   let sut = Game()
+   let cant = (fun () -> sut.Move(White, 1, 2, 0, 3))
+   Assert.That(cant, Throws.TypeOf<System.ArgumentException>())
 
 [<Test>]
-let ``When a game rejects a move when the to-square is already occupied``() =
-   let expected = true
-   let actual = false
-   Assert.AreEqual(expected, actual)
+let ``A game rejects a move when the to-square is already occupied``() =
+   let sut = Game()
+   let sut' = 
+      sut
+         .Move(Red, 1, 2, 2, 3)
+         .Move(White, 0, 5, 1, 4)
+   let cant = (fun () -> sut.Move(Red, 2, 3, 1, 4) |> ignore)
+   Assert.That(cant, Throws.TypeOf<System.ArgumentException>())
